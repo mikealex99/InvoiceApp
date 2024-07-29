@@ -1,4 +1,4 @@
-# Invoice Management System
+# NestJS - TypeScript - PostrgeSQL - Prisma - GraphQL
 
 ## Overview
 
