@@ -7,4 +7,4 @@ This is an invoice management system with a frontend built using React, TypeScri
 ## Structure
 
 - **Frontend**: Located in the `frontend` directory
-- **Backend**: Located in the `server` directory
+- **Backend**: Located in the `backend` directory
