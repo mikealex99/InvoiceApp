@@ -1,0 +1,75 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type InvoiceType {
+  id: Int!
+  vendor_name: String!
+  amount: Float!
+  due_date: Timestamp!
+  description: String
+  user_id: Int
+  paid: Boolean!
+}
+
+"""
+`Date` type as integer. Type represents date and time as number of milliseconds from start of UNIX epoch.
+"""
+scalar Timestamp
+
+type User {
+  id: Int!
+  email: String!
+  name: String
+}
+
+type AuthPayload {
+  token: String!
+}
+
+type Query {
+  getUserById(id: Float!): User!
+  invoices(page: Int, pageSize: Int): [InvoiceType]
+  invoice(id: Float!): InvoiceType
+  totalAmountByDueDate(due_date: String!): Float!
+}
+
+type Mutation {
+  login(email: String!, password: String!): AuthPayload!
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  deleteUser(id: Float!): Boolean!
+  createInvoice(data: CreateInvoiceInput!): InvoiceType!
+  updateInvoice(id: Float!, data: UpdateInvoiceInput!): InvoiceType
+  deleteInvoice(id: Float!): Boolean!
+}
+
+input CreateUserInput {
+  email: String!
+  password: String!
+  name: String
+}
+
+input UpdateUserInput {
+  id: Int!
+  name: String
+  password: String
+}
+
+input CreateInvoiceInput {
+  vendor_name: String!
+  amount: Float!
+  due_date: Timestamp!
+  description: String
+  user_id: Int
+  paid: Boolean!
+}
+
+input UpdateInvoiceInput {
+  vendor_name: String
+  amount: Float
+  due_date: Timestamp
+  description: String
+  user_id: Int
+  paid: Boolean
+}
